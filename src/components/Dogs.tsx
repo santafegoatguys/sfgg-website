@@ -41,23 +41,30 @@ export default function Dogs() {
           <div className="grid grid-cols-2 gap-4">
             <div className="rounded-xl overflow-hidden shadow-lg">
               <img
-                src="/images/dogs/mac-tango-ranch.jpg"
-                alt="Mac and Tango — Great Pyrenees guardian dogs"
-                className="w-full h-48 object-cover"
+                src="/images/dogs/tango-sunset.jpg"
+                alt="Great Pyrenees guardian dog standing watch at sunset"
+                className="w-full h-52 object-cover"
               />
             </div>
             <div className="rounded-xl overflow-hidden shadow-lg">
               <img
-                src="/images/dogs/dogs-july.jpg"
-                alt="Guardian dogs with the herd"
-                className="w-full h-48 object-cover"
+                src="/images/dogs/mac-hat.jpg"
+                alt="Mac the Great Pyrenees wearing a Santa Fe Goat Guys hat"
+                className="w-full h-52 object-cover"
               />
             </div>
-            <div className="col-span-2 rounded-xl overflow-hidden shadow-lg">
+            <div className="rounded-xl overflow-hidden shadow-lg">
               <img
-                src="/images/dogs/spypoint-evening.png"
-                alt="Guardian dogs on trail cam monitoring the herd at dusk"
-                className="w-full h-48 object-cover"
+                src="/images/dogs/mac-watercolor.jpg"
+                alt="Watercolor portrait of Mac the guardian dog"
+                className="w-full h-52 object-cover"
+              />
+            </div>
+            <div className="rounded-xl overflow-hidden shadow-lg">
+              <img
+                src="/images/dogs/dogs-snow.jpg"
+                alt="Mac and Tango running through the snow"
+                className="w-full h-52 object-cover"
               />
             </div>
           </div>
