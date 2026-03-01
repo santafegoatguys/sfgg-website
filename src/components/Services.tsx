@@ -6,14 +6,14 @@ const SERVICES = [
     title: 'Residential',
     description:
       'Natural weed control for your yard or property. Our goats efficiently manage vegetation while providing natural fertilization.',
-    image: '/images/services/eldorado-job.jpg',
+    image: '/images/services/residential.jpg',
   },
   {
     icon: Building2,
     title: 'Commercial',
     description:
       'Large-scale vegetation management for solar fields and commercial properties. Cost-effective and environmentally friendly.',
-    image: '/images/herd/goats-at-work.jpg',
+    image: '/images/services/commercial.jpg',
   },
   {
     icon: Trees,
