@@ -33,7 +33,7 @@ export default function Navbar() {
           {/* Logo */}
           <a href="/" className="flex items-center gap-2">
             <img
-              src="/images/logo/sfgg-logo-small.png"
+              src="/images/logo/website-logo-nav.png"
               alt="Santa Fe Goat Guys Logo"
               className="h-10 w-auto"
             />

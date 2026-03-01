@@ -17,7 +17,7 @@ export default function Hero() {
       <div className="relative z-10 text-center px-4 max-w-3xl mx-auto">
         {/* Logo */}
         <img
-          src="/images/logo/sfgg-logo.png"
+          src="/images/logo/website-logo.png"
           alt="Santa Fe Goat Guys Logo"
           className="h-32 md:h-40 w-auto mx-auto mb-8 drop-shadow-2xl"
         />

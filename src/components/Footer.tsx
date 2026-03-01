@@ -9,7 +9,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <img
-                src="/images/logo/sfgg-logo-small.png"
+                src="/images/logo/website-logo-nav.png"
                 alt="Santa Fe Goat Guys Logo"
                 className="h-10 w-auto"
               />
