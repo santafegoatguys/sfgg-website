@@ -13,7 +13,7 @@ export default function Footer() {
                 alt="Santa Fe Goat Guys Logo"
                 className="h-10 w-auto"
               />
-              <span className="font-bold text-white text-lg">SF Goat Guys</span>
+              <span className="font-bold text-white text-lg">Santa Fe Goat Guys</span>
             </div>
             <p className="text-sm leading-relaxed">
               Eco-friendly vegetation management through sustainable goat grazing.
@@ -41,8 +41,8 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#micro-feedlot" className="hover:text-green-400 text-sm transition-colors">
-                  Micro-Feedlot
+                <a href="#herd-in-a-box" className="hover:text-green-400 text-sm transition-colors">
+                  Herd-in-a-Box
                 </a>
               </li>
             </ul>

@@ -2,7 +2,7 @@ import { ArrowRight } from 'lucide-react'
 
 export default function MicroFeedlot() {
   return (
-    <section id="micro-feedlot" className="py-20 px-4 bg-gray-50">
+    <section id="herd-in-a-box" className="py-20 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Image */}
@@ -24,9 +24,6 @@ export default function MicroFeedlot() {
                 New
               </span>
             </div>
-            <p className="text-xl text-green-700 font-medium mb-4">
-              Micro-Feedlot Program
-            </p>
             <p className="text-gray-500 text-lg leading-relaxed mb-6">
               Goats managed on your land. Real meat in the freezer. Minimal hassle.
               Our turnkey solution for 5-20 acre landowners in Northern New Mexico

@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, ExternalLink } from 'lucide-react'
 
 const NAV_LINKS = [
   { label: 'Services', href: '#services' },
-  { label: 'Micro-Feedlot', href: '#micro-feedlot' },
+  { label: 'Herd-in-a-Box', href: '#herd-in-a-box' },
   { label: 'Team', href: '#team' },
   { label: 'Process', href: '#process' },
   { label: 'Gallery', href: '#gallery' },
@@ -31,7 +31,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2">
+          <a href="/" className="flex items-center gap-2">
             <img
               src="/images/logo/sfgg-logo-small.png"
               alt="Santa Fe Goat Guys Logo"
@@ -42,7 +42,7 @@ export default function Navbar() {
                 scrolled ? 'text-gray-900' : 'text-white'
               }`}
             >
-              SF Goat Guys
+              Santa Fe Goat Guys
             </span>
           </a>
 
@@ -61,6 +61,18 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
+            <a
+              href="https://fireready.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`text-sm font-medium transition-colors flex items-center gap-1 ${
+                scrolled
+                  ? 'text-orange-600 hover:text-orange-700'
+                  : 'text-orange-300 hover:text-orange-200'
+              }`}
+            >
+              FireReady <ExternalLink size={12} />
+            </a>
             <a
               href="#contact"
               className="bg-green-700 hover:bg-green-800 text-white px-5 py-2 rounded-lg text-sm font-semibold transition-colors"
@@ -96,6 +108,15 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
+            <a
+              href="https://fireready.vercel.app"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setMobileOpen(false)}
+              className="flex items-center gap-1 text-orange-600 hover:text-orange-700 font-medium py-2"
+            >
+              FireReady <ExternalLink size={13} />
+            </a>
             <a
               href="#contact"
               onClick={() => setMobileOpen(false)}
