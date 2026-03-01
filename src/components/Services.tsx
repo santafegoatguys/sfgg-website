@@ -13,7 +13,7 @@ const SERVICES = [
     title: 'Commercial',
     description:
       'Large-scale vegetation management for solar fields and commercial properties. Cost-effective and environmentally friendly.',
-    image: '/images/herd/herd-in-pen.jpg',
+    image: '/images/herd/goats-at-work.jpg',
   },
   {
     icon: Trees,
