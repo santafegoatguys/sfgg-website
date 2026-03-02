@@ -37,7 +37,7 @@ export default function Gallery() {
             Our Herd in Action
           </h2>
           <p className="text-gray-500 text-lg max-w-2xl mx-auto">
-            Kiko goats doing what they do best across Northern New Mexico
+            Goats doing what they do best across Northern New Mexico
           </p>
         </div>
 
