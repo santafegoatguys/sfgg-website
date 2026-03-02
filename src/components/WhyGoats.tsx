@@ -15,8 +15,8 @@ const ARTICLES = [
     title: 'Weed Control Without Chemicals',
     body: 'Goats preferentially browse invasive species like cheatgrass, juniper seedlings, kochia, and Russian thistle that crowd out native plants and increase fire risk. No herbicide residue, no soil compaction, no runoff into waterways.',
     source: {
-      label: 'USDA NRCS Prescribed Grazing',
-      href: 'https://www.nrcs.usda.gov/programs-initiatives/eqip-environmental-quality-incentives/prescribed-grazing',
+      label: 'USU Extension — Goat Grazing Controls Weeds',
+      href: 'https://extension.usu.edu/rangelands/research/goat-grazing-controls-weeds',
     },
   },
   {
@@ -24,8 +24,8 @@ const ARTICLES = [
     title: 'Watershed & Soil Health',
     body: 'Properly managed goat grazing increases native plant diversity, reduces erosion, and improves water infiltration. Hoof action breaks soil crusts and herd manure returns nutrients — benefits that mechanical methods and herbicides simply cannot provide.',
     source: {
-      label: 'NRCS Grazing & Watershed Management',
-      href: 'https://www.nrcs.usda.gov/conservation-basics/natural-resource-concerns/water/watersheds',
+      label: 'NRCS — Grazing Land Assessments',
+      href: 'https://www.nrcs.usda.gov/ceap/grazing-lands',
     },
   },
   {
@@ -33,8 +33,8 @@ const ARTICLES = [
     title: 'The Economics of Targeted Grazing',
     body: 'Studies show targeted grazing costs 30–60% less per acre than mechanical clearing and up to 80% less than repeated herbicide application over a 3-year management cycle — while delivering long-term ecosystem co-benefits that machines and chemicals cannot match.',
     source: {
-      label: 'CSU Extension — Targeted Grazing',
-      href: 'https://extension.colostate.edu/topic-areas/natural-resources/goats-for-vegetation-management/',
+      label: 'UC Cooperative Extension — Targeted Grazing Cost Study',
+      href: 'https://projects.sare.org/media/pdf/U/C/C/UCCE.Cost_.Study_Targeted.Grazing.pdf',
     },
   },
 ]
