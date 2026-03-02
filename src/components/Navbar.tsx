@@ -3,6 +3,7 @@ import { Menu, X, ExternalLink } from 'lucide-react'
 
 const NAV_LINKS = [
   { label: 'Services', href: '#services' },
+  { label: 'Why Goats?', href: '#why-goats' },
   { label: 'Herd-in-a-Box', href: '#herd-in-a-box' },
   { label: 'Team', href: '#team' },
   { label: 'Process', href: '#process' },

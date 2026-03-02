@@ -1,6 +1,7 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Services from './components/Services'
+import WhyGoats from './components/WhyGoats'
 import MicroFeedlot from './components/MicroFeedlot'
 import Team from './components/Team'
 import Dogs from './components/Dogs'
@@ -15,6 +16,7 @@ function App() {
       <Navbar />
       <Hero />
       <Services />
+      <WhyGoats />
       <MicroFeedlot />
       <Team />
       <Dogs />
