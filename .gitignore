@@ -22,3 +22,15 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+.vercel
+
+# Video files — too large for git
+*.mp4
+*.MOV
+*.mov
+*.avi
+
+# Original photos with spaces in filename (use URL-safe renamed copies instead)
+public/images/**/* *.jpg
+public/images/**/* *.png
