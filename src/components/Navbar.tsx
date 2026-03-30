@@ -58,7 +58,7 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="https://fireready.vercel.app"
+              href="https://fireready.ai"
               target="_blank"
               rel="noopener noreferrer"
               className={`text-sm font-medium transition-colors flex items-center gap-1 ${
@@ -117,7 +117,7 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="https://fireready.vercel.app"
+              href="https://fireready.ai"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileOpen(false)}
