@@ -101,6 +101,22 @@ export default function FaqPage() {
         </div>
       </section>
 
+      {/* Ecosystem */}
+      <section className="bg-white py-12 border-y border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6">
+          <div className="grid md:grid-cols-2 gap-6">
+            <a href="https://fireready.ai/free-assessment?state=NM" target="_blank" rel="noopener noreferrer" className="bg-sand rounded-xl p-6 hover:shadow-md transition-shadow block">
+              <h3 className="font-serif font-bold text-charcoal mb-2">&#128293; Check Your Wildfire Risk</h3>
+              <p className="text-sm text-warm-gray">Free AI assessment for your New Mexico property. 30 seconds, no account needed.</p>
+            </a>
+            <a href="https://goatmaps.vercel.app/graziers" target="_blank" rel="noopener noreferrer" className="bg-sand rounded-xl p-6 hover:shadow-md transition-shadow block">
+              <h3 className="font-serif font-bold text-charcoal mb-2">&#128506; Find Grazing Providers</h3>
+              <p className="text-sm text-warm-gray">Browse our directory of targeted grazing services across the western US.</p>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="bg-forest py-16 text-center">
         <div className="max-w-2xl mx-auto px-4">

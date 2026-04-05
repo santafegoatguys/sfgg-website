@@ -157,6 +157,43 @@ export default function CityServicePage() {
         </div>
       </section>
 
+      {/* Ecosystem CTAs */}
+      <section className="bg-white py-16 border-y border-gray-100">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <h2 className="font-serif text-2xl font-bold text-charcoal mb-8 text-center">
+            Tools for {city.cityName} Property Owners
+          </h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            <a
+              href="https://fireready.ai/free-assessment?state=NM"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-sand rounded-xl p-6 hover:shadow-md transition-shadow block"
+            >
+              <p className="text-2xl mb-2">&#128293;</p>
+              <h3 className="font-serif font-bold text-charcoal mb-2">FireReady Home</h3>
+              <p className="text-sm text-warm-gray mb-3">
+                Free AI-powered wildfire risk assessment for your {city.cityName} property. Get your risk score in 30 seconds.
+              </p>
+              <span className="text-forest font-medium text-sm">Check your risk &rarr;</span>
+            </a>
+            <a
+              href="https://goatmaps.vercel.app/graziers"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-sand rounded-xl p-6 hover:shadow-md transition-shadow block"
+            >
+              <p className="text-2xl mb-2">&#128506;</p>
+              <h3 className="font-serif font-bold text-charcoal mb-2">Find Grazing Providers</h3>
+              <p className="text-sm text-warm-gray mb-3">
+                Search our directory of targeted grazing providers, processors, and producers across the western US.
+              </p>
+              <span className="text-forest font-medium text-sm">Browse providers &rarr;</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Other Cities */}
       <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
