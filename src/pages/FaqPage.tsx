@@ -109,7 +109,7 @@ export default function FaqPage() {
               <h3 className="font-serif font-bold text-charcoal mb-2">&#128293; Check Your Wildfire Risk</h3>
               <p className="text-sm text-warm-gray">Free AI assessment for your New Mexico property. 30 seconds, no account needed.</p>
             </a>
-            <a href="https://goatmaps.vercel.app/graziers" target="_blank" rel="noopener noreferrer" className="bg-sand rounded-xl p-6 hover:shadow-md transition-shadow block">
+            <a href="https://grazematch.com/graziers" target="_blank" rel="noopener noreferrer" className="bg-sand rounded-xl p-6 hover:shadow-md transition-shadow block">
               <h3 className="font-serif font-bold text-charcoal mb-2">&#128506; Find Grazing Providers</h3>
               <p className="text-sm text-warm-gray">Browse our directory of targeted grazing services across the western US.</p>
             </a>

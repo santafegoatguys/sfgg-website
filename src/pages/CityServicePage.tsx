@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { Link, useParams, Navigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
-import { getCityContent, getNearestCities, getFireReadyUrl, getGoatMapsUrl } from '../lib/city-content'
+import { getCityContent, getNearestCities, getFireReadyUrl, getGrazeMatchUrl } from '../lib/city-content'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
@@ -17,7 +17,7 @@ export default function CityServicePage() {
 
   const nearestCities = getNearestCities(citySlug!, 8)
   const fireReadyUrl = getFireReadyUrl(citySlug!)
-  const goatMapsUrl = getGoatMapsUrl(citySlug!)
+  const grazeMatchUrl = getGrazeMatchUrl(citySlug!)
 
   // FAQPage schema
   const faqSchema = {
@@ -289,7 +289,7 @@ export default function CityServicePage() {
               <span className="text-forest font-medium text-sm">Check your risk &rarr;</span>
             </a>
             <a
-              href={goatMapsUrl}
+              href={grazeMatchUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-sand rounded-xl p-6 hover:shadow-md transition-shadow block"

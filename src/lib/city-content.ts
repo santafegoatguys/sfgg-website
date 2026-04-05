@@ -1281,8 +1281,8 @@ export function getFireReadyUrl(slug: string): string {
 }
 
 /**
- * Get the GoatMaps URL for a given city.
+ * Get the GrazeMatch URL for a given city.
  */
-export function getGoatMapsUrl(slug: string): string {
-  return `https://goatmaps.vercel.app/graziers/${slug}-nm`;
+export function getGrazeMatchUrl(slug: string): string {
+  return `https://grazematch.com/graziers/${slug}-nm`;
 }

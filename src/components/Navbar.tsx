@@ -76,7 +76,7 @@ export default function Navbar() {
               FireReady <ExternalLink size={12} />
             </a>
             <a
-              href="https://goatmaps.vercel.app"
+              href="https://grazematch.com"
               target="_blank"
               rel="noopener noreferrer"
               className={`text-sm font-medium transition-colors flex items-center gap-1 ${
@@ -85,7 +85,7 @@ export default function Navbar() {
                   : 'text-green-300 hover:text-green-200'
               }`}
             >
-              GoatMaps <ExternalLink size={12} />
+              GrazeMatch <ExternalLink size={12} />
             </a>
             <a
               href={resolveHref('#contact')}
@@ -132,13 +132,13 @@ export default function Navbar() {
               FireReady <ExternalLink size={13} />
             </a>
             <a
-              href="https://goatmaps.vercel.app"
+              href="https://grazematch.com"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileOpen(false)}
               className="flex items-center gap-1 text-green-600 hover:text-green-700 font-medium py-2"
             >
-              GoatMaps <ExternalLink size={13} />
+              GrazeMatch <ExternalLink size={13} />
             </a>
             <a
               href={resolveHref('#contact')}
