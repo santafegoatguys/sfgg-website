@@ -1,3 +1,4 @@
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Services from './components/Services'
@@ -9,8 +10,9 @@ import Process from './components/Process'
 import Gallery from './components/Gallery'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import CityServicePage from './pages/CityServicePage'
 
-function App() {
+function HomePage() {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
@@ -25,6 +27,18 @@ function App() {
       <Contact />
       <Footer />
     </div>
+  )
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/services/:citySlug" element={<CityServicePage />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

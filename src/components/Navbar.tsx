@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { Menu, X, ExternalLink } from 'lucide-react'
 
 const NAV_LINKS = [
@@ -14,6 +15,11 @@ const NAV_LINKS = [
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const location = useLocation()
+  const isHome = location.pathname === '/'
+
+  // On non-home pages, prefix hash links with / to navigate home first
+  const resolveHref = (href: string) => (isHome ? href : `/${href}`)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50)
@@ -47,7 +53,7 @@ export default function Navbar() {
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
-                href={link.href}
+                href={resolveHref(link.href)}
                 className={`text-sm font-medium transition-colors ${
                   scrolled
                     ? 'text-gray-600 hover:text-green-700'
@@ -82,7 +88,7 @@ export default function Navbar() {
               GoatMaps <ExternalLink size={12} />
             </a>
             <a
-              href="#contact"
+              href={resolveHref('#contact')}
               className="bg-green-700 hover:bg-green-800 text-white px-5 py-2 rounded-lg text-sm font-semibold transition-colors"
             >
               Schedule Grazing
@@ -109,7 +115,7 @@ export default function Navbar() {
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
-                href={link.href}
+                href={resolveHref(link.href)}
                 onClick={() => setMobileOpen(false)}
                 className="block text-gray-600 hover:text-green-700 font-medium py-2"
               >
@@ -135,7 +141,7 @@ export default function Navbar() {
               GoatMaps <ExternalLink size={13} />
             </a>
             <a
-              href="#contact"
+              href={resolveHref('#contact')}
               onClick={() => setMobileOpen(false)}
               className="block bg-green-700 text-white text-center px-5 py-3 rounded-lg font-semibold mt-2"
             >

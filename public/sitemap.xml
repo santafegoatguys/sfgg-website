@@ -5,4 +5,19 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  <url><loc>https://santafegoatguys.com/services/eldorado</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://santafegoatguys.com/services/tesuque</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://santafegoatguys.com/services/los-alamos</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://santafegoatguys.com/services/white-rock</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://santafegoatguys.com/services/edgewood</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://santafegoatguys.com/services/la-cienega</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://santafegoatguys.com/services/cerrillos</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://santafegoatguys.com/services/lamy</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://santafegoatguys.com/services/glorieta</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://santafegoatguys.com/services/pecos</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://santafegoatguys.com/services/pojoaque</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://santafegoatguys.com/services/nambe</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://santafegoatguys.com/services/galisteo</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://santafegoatguys.com/services/madrid</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://santafegoatguys.com/services/stanley</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
