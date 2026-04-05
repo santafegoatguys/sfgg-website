@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { Link, useParams, Navigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
-import { getCityContent, getAllCities } from '../lib/city-content'
+import { getCityContent, getNearestCities, getFireReadyUrl, getGoatMapsUrl } from '../lib/city-content'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 
@@ -15,9 +15,12 @@ export default function CityServicePage() {
 
   if (!city) return <Navigate to="/" replace />
 
-  const otherCities = getAllCities().filter((c) => c.slug !== citySlug)
+  const nearestCities = getNearestCities(citySlug!, 8)
+  const fireReadyUrl = getFireReadyUrl(citySlug!)
+  const goatMapsUrl = getGoatMapsUrl(citySlug!)
 
-  const schemaJsonLd = {
+  // FAQPage schema
+  const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: city.faqs.map((faq) => ({
@@ -30,6 +33,32 @@ export default function CityServicePage() {
     })),
   }
 
+  // LocalBusiness schema
+  const localBusinessSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'Santa Fe Goat Guys',
+    description: `Professional targeted goat grazing and defensible space services in ${city.cityName}, New Mexico.`,
+    url: 'https://santafegoatguys.com',
+    areaServed: {
+      '@type': 'City',
+      name: city.cityName,
+      containedInPlace: {
+        '@type': 'State',
+        name: 'New Mexico',
+      },
+    },
+    serviceType: [
+      'Targeted Grazing',
+      'Defensible Space Creation',
+      'Wildfire Fuel Reduction',
+      'Vegetation Management',
+    ],
+    priceRange: '$$',
+    telephone: '+1-505-780-0312',
+    email: 'info@sfgoatguys.com',
+  }
+
   return (
     <div className="min-h-screen bg-white">
       <Helmet>
@@ -40,7 +69,8 @@ export default function CityServicePage() {
         <meta property="og:description" content={city.metaDescription} />
         <meta property="og:url" content={`https://santafegoatguys.com/services/${city.slug}`} />
         <meta property="og:type" content="website" />
-        <script type="application/ld+json">{JSON.stringify(schemaJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
       </Helmet>
 
       <Navbar />
@@ -50,6 +80,8 @@ export default function CityServicePage() {
         <nav className="text-sm text-warm-gray">
           <Link to="/" className="hover:text-forest transition-colors">Home</Link>
           <span className="mx-2">/</span>
+          <Link to="/#contact" className="hover:text-forest transition-colors">Services</Link>
+          <span className="mx-2">/</span>
           <span className="text-charcoal font-medium">{city.cityName}</span>
         </nav>
       </div>
@@ -58,7 +90,7 @@ export default function CityServicePage() {
       <section className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
         <div className="max-w-3xl">
           <p className="text-sm font-semibold text-forest uppercase tracking-wider mb-3">
-            Serving {city.cityName}, New Mexico
+            Serving {city.cityName}, New Mexico &middot; {city.county} County
           </p>
           <h1 className="font-serif text-3xl sm:text-4xl font-bold text-charcoal leading-tight mb-6">
             {city.h1}
@@ -74,13 +106,92 @@ export default function CityServicePage() {
               Get a Free Quote
             </Link>
             <a
-              href="https://fireready.ai/free-assessment?state=NM"
+              href={fireReadyUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="border-2 border-forest text-forest px-6 py-3 rounded-lg font-medium hover:bg-forest hover:text-white transition-colors"
             >
               Free FireReady Assessment
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Fire Risk Profile */}
+      <section className="bg-red-50 border-y border-red-100 py-16">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <h2 className="font-serif text-2xl font-bold text-charcoal mb-8">
+            {city.cityName} Fire Risk Profile
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Left: Key facts */}
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <span className="text-red-600 text-lg mt-0.5">&#9632;</span>
+                <div>
+                  <p className="font-semibold text-charcoal text-sm">Elevation</p>
+                  <p className="text-warm-gray text-sm">{city.elevation.toLocaleString()} ft</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-red-600 text-lg mt-0.5">&#9632;</span>
+                <div>
+                  <p className="font-semibold text-charcoal text-sm">Primary Vegetation</p>
+                  <p className="text-warm-gray text-sm">{city.primaryVegetation.join(', ')}</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-red-600 text-lg mt-0.5">&#9632;</span>
+                <div>
+                  <p className="font-semibold text-charcoal text-sm">Terrain</p>
+                  <p className="text-warm-gray text-sm">{city.terrain}</p>
+                </div>
+              </div>
+              {city.population > 0 && (
+                <div className="flex items-start gap-3">
+                  <span className="text-red-600 text-lg mt-0.5">&#9632;</span>
+                  <div>
+                    <p className="font-semibold text-charcoal text-sm">Approximate Population</p>
+                    <p className="text-warm-gray text-sm">{city.population.toLocaleString()}</p>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Right: Fire history */}
+            <div>
+              {city.fireHistory.length > 0 ? (
+                <>
+                  <p className="font-semibold text-charcoal text-sm mb-3">Notable Fire History</p>
+                  <div className="space-y-3">
+                    {city.fireHistory.map((fire) => (
+                      <div key={`${fire.name}-${fire.year}`} className="bg-white rounded-lg p-4 border border-red-100">
+                        <p className="font-semibold text-charcoal text-sm">{fire.name} ({fire.year})</p>
+                        <p className="text-warm-gray text-sm">
+                          {fire.acres.toLocaleString()} acres burned
+                          {fire.structures ? ` \u00B7 ${fire.structures.toLocaleString()} structures destroyed` : ''}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </>
+              ) : (
+                <div className="bg-white rounded-lg p-4 border border-red-100">
+                  <p className="font-semibold text-charcoal text-sm mb-1">No Major Recorded Fires</p>
+                  <p className="text-warm-gray text-sm">
+                    No major fires have been recorded in the immediate {city.cityName} area, but the surrounding vegetation and terrain create conditions consistent with communities that have experienced devastating wildfire. Defensible space is a preventive measure, not a reactive one.
+                  </p>
+                </div>
+              )}
+              <a
+                href={fireReadyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-4 text-red-700 font-medium text-sm hover:text-red-800 transition-colors"
+              >
+                Check your {city.cityName} property risk free &rarr;
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -165,7 +276,7 @@ export default function CityServicePage() {
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
             <a
-              href="https://fireready.ai/free-assessment?state=NM"
+              href={fireReadyUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-sand rounded-xl p-6 hover:shadow-md transition-shadow block"
@@ -178,7 +289,7 @@ export default function CityServicePage() {
               <span className="text-forest font-medium text-sm">Check your risk &rarr;</span>
             </a>
             <a
-              href="https://goatmaps.vercel.app/graziers"
+              href={goatMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-sand rounded-xl p-6 hover:shadow-md transition-shadow block"
@@ -194,25 +305,33 @@ export default function CityServicePage() {
         </div>
       </section>
 
-      {/* Other Cities */}
-      <section className="py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="font-serif text-2xl font-bold text-charcoal mb-6">
-            Also Serving Northern New Mexico
-          </h2>
-          <div className="flex flex-wrap justify-center gap-3">
-            {otherCities.map((c) => (
-              <Link
-                key={c.slug}
-                to={`/services/${c.slug}`}
-                className="bg-sand text-charcoal px-4 py-2 rounded-full text-sm font-medium hover:bg-forest hover:text-white transition-colors"
-              >
-                {c.cityName}
-              </Link>
-            ))}
+      {/* Nearby Cities */}
+      {nearestCities.length > 0 && (
+        <section className="py-16">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+            <h2 className="font-serif text-2xl font-bold text-charcoal mb-6">
+              Also Serving Near {city.cityName}
+            </h2>
+            <div className="flex flex-wrap justify-center gap-3">
+              {nearestCities.map((c) => (
+                <Link
+                  key={c.slug}
+                  to={`/services/${c.slug}`}
+                  className="bg-sand text-charcoal px-4 py-2 rounded-full text-sm font-medium hover:bg-forest hover:text-white transition-colors"
+                >
+                  {c.cityName}
+                </Link>
+              ))}
+            </div>
+            <Link
+              to="/#contact"
+              className="inline-block mt-6 text-forest font-medium text-sm hover:text-forest-dark transition-colors"
+            >
+              View all service areas &rarr;
+            </Link>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* CTA */}
       <section className="bg-forest py-16 text-center">
