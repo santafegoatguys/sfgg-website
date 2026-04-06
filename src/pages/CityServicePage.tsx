@@ -59,6 +59,34 @@ export default function CityServicePage() {
     email: 'info@sfgoatguys.com',
   }
 
+  // BreadcrumbList schema
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://santafegoatguys.com' },
+      { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://santafegoatguys.com/#contact' },
+      { '@type': 'ListItem', position: 3, name: city.cityName, item: `https://santafegoatguys.com/services/${city.slug}` },
+    ],
+  }
+
+  // HowTo schema — "How to create defensible space with goat grazing"
+  const howToSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: `How to Create Defensible Space in ${city.cityName} with Goat Grazing`,
+    description: `Step-by-step guide to creating wildfire-safe defensible space around your ${city.cityName} property using targeted goat grazing.`,
+    step: [
+      { '@type': 'HowToStep', position: 1, name: 'Assess Your Property', text: `Get a free wildfire risk assessment for your ${city.cityName} property at fireready.ai. This identifies your risk zones and vegetation types that need treatment.` },
+      { '@type': 'HowToStep', position: 2, name: 'Request a Grazing Quote', text: `Contact Santa Fe Goat Guys for a free site evaluation. We assess vegetation density, terrain, and acreage to create a custom grazing plan for your ${city.cityName} property.` },
+      { '@type': 'HowToStep', position: 3, name: 'Schedule the Herd', text: 'A herd of 40-80 Spanish goats arrives with portable fencing and livestock guardian dogs. The goats selectively browse fire-prone shrubs, juniper seedlings, and ladder fuels.' },
+      { '@type': 'HowToStep', position: 4, name: 'Clear Zone 1 (0-30 ft)', text: 'Goats clear the critical defensible space zone around your home, creating 6-foot spacing between shrub crowns and removing understory vegetation per EMNRD standards.' },
+      { '@type': 'HowToStep', position: 5, name: 'Maintain Annually', text: `Schedule annual maintenance grazing to keep vegetation from rebuilding fire risk. ${city.cityName}'s growing season means understory can regrow within 12-18 months.` },
+    ],
+    totalTime: 'P7D',
+    estimatedCost: { '@type': 'MonetaryAmount', currency: 'USD', value: '200-400 per acre' },
+  }
+
   return (
     <div className="min-h-screen bg-white">
       <Helmet>
@@ -71,6 +99,8 @@ export default function CityServicePage() {
         <meta property="og:type" content="website" />
         <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(howToSchema)}</script>
       </Helmet>
 
       <Navbar />

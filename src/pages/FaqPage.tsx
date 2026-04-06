@@ -24,6 +24,27 @@ export default function FaqPage() {
     })),
   }
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://santafegoatguys.com' },
+      { '@type': 'ListItem', position: 2, name: 'FAQ', item: 'https://santafegoatguys.com/faq' },
+    ],
+  }
+
+  const orgSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Santa Fe Goat Guys',
+    url: 'https://santafegoatguys.com',
+    description: 'Professional targeted goat grazing for wildfire prevention, defensible space creation, and vegetation management in Northern New Mexico.',
+    telephone: '+1-505-780-0312',
+    email: 'info@sfgoatguys.com',
+    areaServed: { '@type': 'State', name: 'New Mexico' },
+    knowsAbout: ['Targeted Grazing', 'Defensible Space', 'Wildfire Prevention', 'Vegetation Management', 'Goat Grazing'],
+  }
+
   return (
     <div className="min-h-screen bg-white">
       <Helmet>
@@ -35,6 +56,8 @@ export default function FaqPage() {
         <meta property="og:url" content="https://santafegoatguys.com/faq" />
         <meta property="og:type" content="website" />
         <script type="application/ld+json">{JSON.stringify(schemaJsonLd)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(orgSchema)}</script>
       </Helmet>
 
       <Navbar />
