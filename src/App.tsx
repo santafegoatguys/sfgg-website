@@ -7,6 +7,7 @@ import MicroFeedlot from './components/MicroFeedlot'
 import Team from './components/Team'
 import Dogs from './components/Dogs'
 import Process from './components/Process'
+import SavingsCalculator from './components/SavingsCalculator'
 import Gallery from './components/Gallery'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
@@ -24,6 +25,7 @@ function HomePage() {
       <Team />
       <Dogs />
       <Process />
+      <SavingsCalculator />
       <Gallery />
       <Contact />
       <Footer />
