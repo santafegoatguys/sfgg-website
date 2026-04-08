@@ -72,6 +72,15 @@ export const FAQ_TOPICS: FaqTopic[] = [
     ],
   },
   {
+    name: 'Targeted goat grazing in Los Alamos, NM',
+    slug: 'goat-grazing-los-alamos',
+    faqs: [
+      { question: 'What makes Los Alamos particularly vulnerable to wildfire?', answer: 'Los Alamos sits in steep canyon terrain where natural fire corridors channel winds and dense understory vegetation provides abundant fuel loads. The combination of mixed conifer forests, residential development scattered across Wildland-Urban Interface zones, and drought-stressed vegetation creates textbook conditions for catastrophic wildfire.' },
+      { question: 'How do Spanish goats create defensible space that meets New Mexico standards?', answer: 'Spanish goats navigate steep slopes and rocky terrain while systematically reducing fuel loads through targeted browsing, creating natural fuel breaks that meet New Mexico EMNRD defensible space requirements. Unlike mechanical clearing, goats produce park-like landscapes that enhance property values while dramatically reducing fire risk.' },
+      { question: 'What are the benefits of targeted goat grazing for Los Alamos HOAs?', answer: 'Targeted goat grazing allows HOAs to distribute vegetation management costs across multiple property owners while creating community-wide fuel breaks. The process meets regulatory requirements, reduces liability exposure, and maintains visual appeal better than traditional brush clearing methods.' },
+    ],
+  },
+  {
     name: 'EMNRD defensible space standards',
     slug: 'emnrd-defensible-space',
     faqs: [
