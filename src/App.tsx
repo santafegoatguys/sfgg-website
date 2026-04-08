@@ -14,6 +14,7 @@ import Footer from './components/Footer'
 import CityServicePage from './pages/CityServicePage'
 import FaqPage from './pages/FaqPage'
 import PseoPage from './pages/PseoPage'
+import BlogPage from './pages/BlogPage'
 
 function HomePage() {
   return (
@@ -42,6 +43,8 @@ function App() {
         <Route path="/services/:citySlug" element={<CityServicePage />} />
         <Route path="/faq" element={<FaqPage />} />
         <Route path="/pseo/:slug" element={<PseoPage />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:slug" element={<BlogPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
