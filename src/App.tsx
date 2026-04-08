@@ -13,6 +13,7 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import CityServicePage from './pages/CityServicePage'
 import FaqPage from './pages/FaqPage'
+import PseoPage from './pages/PseoPage'
 
 function HomePage() {
   return (
@@ -40,6 +41,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/services/:citySlug" element={<CityServicePage />} />
         <Route path="/faq" element={<FaqPage />} />
+        <Route path="/pseo/:slug" element={<PseoPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
