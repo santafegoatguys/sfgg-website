@@ -1,6 +1,9 @@
 /**
- * Auto-generates sitemap.xml from city-content.ts data.
- * Run: node scripts/generate-sitemap.js
+ * Auto-generates sitemap.xml from:
+ *  - city-content.ts  → /services/:slug
+ *  - content/pseo/    → /pseo/:slug
+ *  - content/blog/    → /blog/:slug
+ * Run: node scripts/generate-sitemap.cjs
  */
 const fs = require('fs');
 const path = require('path');
@@ -8,49 +11,53 @@ const path = require('path');
 const DOMAIN = 'https://santafegoatguys.com';
 const TODAY = new Date().toISOString().split('T')[0];
 
-// Read the built JS to extract city slugs
-// Simpler approach: parse the TS source directly for slug values
+// ── City service pages from city-content.ts ──────────────────────────────────
 const cityContentPath = path.join(__dirname, '..', 'src', 'lib', 'city-content.ts');
-const content = fs.readFileSync(cityContentPath, 'utf8');
-
-// Extract all slug values from the CITY_PAGES record keys
+const cityContent = fs.readFileSync(cityContentPath, 'utf8');
 const slugRegex = /^\s{2}'?([a-z][a-z0-9-]*)'?\s*:\s*\{/gm;
-const slugs = [];
+const citySlugs = [];
 let match;
-while ((match = slugRegex.exec(content)) !== null) {
-  slugs.push(match[1]);
+while ((match = slugRegex.exec(cityContent)) !== null) {
+  citySlugs.push(match[1]);
 }
+console.log(`Found ${citySlugs.length} city service pages`);
 
-console.log(`Found ${slugs.length} city pages`);
+// ── pSEO pages from content/pseo/ ────────────────────────────────────────────
+const pseoDir = path.join(__dirname, '..', 'content', 'pseo');
+const pseoSlugs = fs.existsSync(pseoDir)
+  ? fs.readdirSync(pseoDir).filter(f => f.endsWith('.md')).map(f => f.replace('.md', ''))
+  : [];
+console.log(`Found ${pseoSlugs.length} pSEO pages`);
 
-// Build sitemap XML
+// ── Blog posts from content/blog/ ────────────────────────────────────────────
+const blogDir = path.join(__dirname, '..', 'content', 'blog');
+const blogSlugs = fs.existsSync(blogDir)
+  ? fs.readdirSync(blogDir).filter(f => f.endsWith('.md')).map(f => f.replace('.md', ''))
+  : [];
+console.log(`Found ${blogSlugs.length} blog posts`);
+
+// ── Build URL list ────────────────────────────────────────────────────────────
 const urls = [
-  // Static pages
-  { loc: '/', priority: '1.0', changefreq: 'weekly' },
-  { loc: '/faq', priority: '0.8', changefreq: 'monthly' },
-  // City pages
-  ...slugs.map((slug) => ({
-    loc: `/services/${slug}`,
-    priority: '0.7',
-    changefreq: 'monthly',
-  })),
+  { loc: '/',     priority: '1.0', changefreq: 'weekly' },
+  { loc: '/faq',  priority: '0.8', changefreq: 'monthly' },
+  { loc: '/blog', priority: '0.7', changefreq: 'weekly' },
+  ...citySlugs.map(slug => ({ loc: `/services/${slug}`, priority: '0.7', changefreq: 'monthly' })),
+  ...pseoSlugs.map(slug => ({ loc: `/pseo/${slug}`,     priority: '0.6', changefreq: 'monthly' })),
+  ...blogSlugs.map(slug => ({ loc: `/blog/${slug}`,     priority: '0.7', changefreq: 'never'   })),
 ];
 
+// ── Write sitemap.xml ─────────────────────────────────────────────────────────
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls
-  .map(
-    (u) => `  <url>
+${urls.map(u => `  <url>
     <loc>${DOMAIN}${u.loc}</loc>
     <lastmod>${TODAY}</lastmod>
     <changefreq>${u.changefreq}</changefreq>
     <priority>${u.priority}</priority>
-  </url>`
-  )
-  .join('\n')}
+  </url>`).join('\n')}
 </urlset>
 `;
 
 const outPath = path.join(__dirname, '..', 'public', 'sitemap.xml');
 fs.writeFileSync(outPath, xml);
-console.log(`Sitemap written to ${outPath} with ${urls.length} URLs`);
+console.log(`Sitemap written → ${outPath} (${urls.length} URLs total)`);
