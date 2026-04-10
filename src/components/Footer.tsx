@@ -111,9 +111,11 @@ export default function Footer() {
           <p className="text-sm">
             &copy; {year} Santa Fe Goat Guys. All rights reserved.
           </p>
-          <p className="text-sm">
-            Managed by M/M Ranching
-          </p>
+          <div className="flex items-center gap-4 text-sm">
+            <Link to="/terms" className="hover:text-green-400 transition-colors">Terms</Link>
+            <Link to="/privacy" className="hover:text-green-400 transition-colors">Privacy</Link>
+            <span>Managed by M/M Ranching</span>
+          </div>
         </div>
       </div>
     </footer>

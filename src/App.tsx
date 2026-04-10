@@ -15,6 +15,8 @@ import CityServicePage from './pages/CityServicePage'
 import FaqPage from './pages/FaqPage'
 import PseoPage from './pages/PseoPage'
 import BlogPage from './pages/BlogPage'
+import TermsPage from './pages/TermsPage'
+import PrivacyPage from './pages/PrivacyPage'
 
 function HomePage() {
   return (
@@ -45,6 +47,8 @@ function App() {
         <Route path="/pseo/:slug" element={<PseoPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<BlogPage />} />
+        <Route path="/terms" element={<TermsPage />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
