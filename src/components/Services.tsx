@@ -1,4 +1,4 @@
-import { Home, Building2, Trees, Shield } from 'lucide-react'
+import { Home, Building2, Shield } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 const SERVICES = [
