@@ -4,10 +4,10 @@ import { Menu, X } from 'lucide-react'
 
 const NAV_LINKS = [
   { label: 'Services', href: '#services' },
+  { label: 'Pricing', href: '/pricing', isRoute: true },
   { label: 'Why Goats?', href: '#why-goats' },
   { label: 'Herd-in-a-Box', href: '#herd-in-a-box' },
   { label: 'Team', href: '#team' },
-  { label: 'Process', href: '#process' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -49,19 +49,33 @@ export default function Navbar() {
 
           {/* Desktop links */}
           <div className="hidden md:flex items-center gap-8">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={resolveHref(link.href)}
-                className={`text-sm font-medium transition-colors ${
-                  scrolled
-                    ? 'text-gray-600 hover:text-green-700'
-                    : 'text-white/90 hover:text-white'
-                }`}
-              >
-                {link.label}
-              </a>
-            ))}
+            {NAV_LINKS.map((link) =>
+              link.isRoute ? (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className={`text-sm font-medium transition-colors ${
+                    scrolled
+                      ? 'text-gray-600 hover:text-green-700'
+                      : 'text-white/90 hover:text-white'
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.href}
+                  href={resolveHref(link.href)}
+                  className={`text-sm font-medium transition-colors ${
+                    scrolled
+                      ? 'text-gray-600 hover:text-green-700'
+                      : 'text-white/90 hover:text-white'
+                  }`}
+                >
+                  {link.label}
+                </a>
+              )
+            )}
             <Link
               to="/wildfire-readiness"
               className={`text-sm font-bold transition-colors ${
@@ -97,16 +111,27 @@ export default function Navbar() {
       {mobileOpen && (
         <div className="md:hidden bg-white border-t border-gray-100 shadow-lg">
           <div className="px-4 py-4 space-y-3">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={resolveHref(link.href)}
-                onClick={() => setMobileOpen(false)}
-                className="block text-gray-600 hover:text-green-700 font-medium py-2"
-              >
-                {link.label}
-              </a>
-            ))}
+            {NAV_LINKS.map((link) =>
+              link.isRoute ? (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="block text-gray-600 hover:text-green-700 font-medium py-2"
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.href}
+                  href={resolveHref(link.href)}
+                  onClick={() => setMobileOpen(false)}
+                  className="block text-gray-600 hover:text-green-700 font-medium py-2"
+                >
+                  {link.label}
+                </a>
+              )
+            )}
             <Link
               to="/wildfire-readiness"
               onClick={() => setMobileOpen(false)}

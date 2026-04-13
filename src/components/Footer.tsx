@@ -43,8 +43,13 @@ export default function Footer() {
                 </a>
               </li>
               <li>
+                <Link to="/pricing" className="hover:text-green-400 text-sm transition-colors">
+                  Pricing
+                </Link>
+              </li>
+              <li>
                 <Link to="/wildfire-readiness" className="hover:text-amber-400 text-sm font-semibold transition-colors">
-                  🔥 Wildfire Readiness
+                  Wildfire Readiness
                 </Link>
               </li>
               <li>

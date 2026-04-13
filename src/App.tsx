@@ -18,6 +18,7 @@ import BlogPage from './pages/BlogPage'
 import TermsPage from './pages/TermsPage'
 import PrivacyPage from './pages/PrivacyPage'
 import WildfireReadinessPage from './pages/WildfireReadinessPage'
+import PricingPage from './pages/PricingPage'
 
 function HomePage() {
   return (
@@ -50,6 +51,7 @@ function App() {
         <Route path="/blog/:slug" element={<BlogPage />} />
         <Route path="/terms" element={<TermsPage />} />
         <Route path="/wildfire-readiness" element={<WildfireReadinessPage />} />
+        <Route path="/pricing" element={<PricingPage />} />
         <Route path="/privacy" element={<PrivacyPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
