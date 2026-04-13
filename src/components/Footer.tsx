@@ -89,6 +89,16 @@ export default function Footer() {
                   FAQ
                 </Link>
               </li>
+              <li>
+                <a href="https://fireready.ai" target="_blank" rel="noopener noreferrer" className="hover:text-orange-400 text-sm transition-colors">
+                  FireReady
+                </a>
+              </li>
+              <li>
+                <a href="https://grazematch.com" target="_blank" rel="noopener noreferrer" className="hover:text-green-400 text-sm transition-colors">
+                  GrazeMatch
+                </a>
+              </li>
             </ul>
           </div>
 
