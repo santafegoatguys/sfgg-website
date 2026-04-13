@@ -1,4 +1,5 @@
-import { Home, Building2, Trees } from 'lucide-react'
+import { Home, Building2, Trees, Shield } from 'lucide-react'
+import { Link } from 'react-router-dom'
 
 const SERVICES = [
   {
@@ -16,13 +17,14 @@ const SERVICES = [
     image: '/images/services/commercial.jpg',
   },
   {
-    icon: Trees,
-    title: 'Forestry',
+    icon: Shield,
+    title: 'Wildfire Readiness',
     description:
-      'Fire prevention through controlled grazing. We work with forestry services to reduce fire hazards naturally.',
+      'Full-service wildfire mitigation — from professional risk assessment through treatment planning, coordinated execution, and insurance-ready documentation.',
     image: '/images/services/forestry.jpg',
     callout:
-      'The aggregate residential insurance premium is reduced on average by 41% - 52% with ecological forestry practices.',
+      'Insurance premiums drop 41–52% on average with defensible space. We handle everything from assessment to documentation.',
+    link: '/wildfire-readiness',
   },
 ]
 
@@ -71,6 +73,14 @@ export default function Services() {
                       {service.callout}
                     </p>
                   </div>
+                )}
+                {service.link && (
+                  <Link
+                    to={service.link}
+                    className="mt-4 inline-flex items-center gap-1 text-amber-700 hover:text-amber-800 font-semibold text-sm transition-colors"
+                  >
+                    Learn More →
+                  </Link>
                 )}
               </div>
             </div>

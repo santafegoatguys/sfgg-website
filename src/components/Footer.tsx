@@ -43,6 +43,11 @@ export default function Footer() {
                 </a>
               </li>
               <li>
+                <Link to="/wildfire-readiness" className="hover:text-amber-400 text-sm font-semibold transition-colors">
+                  🔥 Wildfire Readiness
+                </Link>
+              </li>
+              <li>
                 <a href="#herd-in-a-box" className="hover:text-green-400 text-sm transition-colors">
                   Herd-in-a-Box
                 </a>
