@@ -1279,10 +1279,12 @@ export function getNearestCities(slug: string, limit = 8): CityContent[] {
  * "page not found" redirect otherwise).
  */
 const FIREREADY_NM_SLUGS = new Set([
-  'angel-fire', 'bernalillo', 'cedar-crest', 'cloudcroft', 'corrales',
-  'edgewood', 'eldorado', 'espanola', 'jemez-springs', 'las-vegas-nm',
-  'los-alamos', 'mora', 'pecos', 'placitas', 'ruidoso', 'santa-fe',
-  'taos', 'white-rock',
+  'angel-fire', 'bernalillo', 'cedar-crest', 'cerrillos', 'chimayo',
+  'cloudcroft', 'corrales', 'edgewood', 'eldorado', 'espanola',
+  'galisteo', 'glorieta', 'jemez-springs', 'la-cienega', 'lamy',
+  'las-vegas-nm', 'los-alamos', 'madrid', 'mora', 'nambe', 'pecos',
+  'placitas', 'pojoaque', 'ruidoso', 'santa-fe', 'taos', 'tesuque',
+  'white-rock',
 ]);
 
 /**
