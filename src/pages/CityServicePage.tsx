@@ -312,9 +312,9 @@ export default function CityServicePage() {
               className="bg-sand rounded-xl p-6 hover:shadow-md transition-shadow block"
             >
               <p className="text-2xl mb-2">&#128293;</p>
-              <h3 className="font-serif font-bold text-charcoal mb-2">FireReady Home</h3>
+              <h3 className="font-serif font-bold text-charcoal mb-2">FireReady</h3>
               <p className="text-sm text-warm-gray mb-3">
-                Free AI-powered wildfire risk assessment for your {city.cityName} property. Get your risk score in 30 seconds.
+                Free AI-powered wildfire risk assessment for your {city.cityName} property. Risk score in 30 seconds plus a full PDF report emailed free.
               </p>
               <span className="text-forest font-medium text-sm">Check your risk &rarr;</span>
             </a>

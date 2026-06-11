@@ -151,9 +151,9 @@ export default function BlogPage() {
           <div className="mt-12 pt-8 border-t border-gray-200">
             <div className="bg-amber-50 border border-amber-200 rounded-xl p-6">
               <p className="text-amber-900 font-semibold mb-1">Ready to protect your property?</p>
-              <p className="text-amber-800 text-sm mb-4">Get a free FireReady Home assessment — takes 30 seconds, maps your specific wildfire risk zones.</p>
+              <p className="text-amber-800 text-sm mb-4">Get a free FireReady assessment — instant risk score in 30 seconds, plus a full PDF report emailed free.</p>
               <div className="flex flex-col sm:flex-row gap-3">
-                <a href="https://app.fireready.ai" target="_blank" rel="noopener noreferrer"
+                <a href="https://fireready.ai/free-assessment?state=NM" target="_blank" rel="noopener noreferrer"
                   className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold px-5 py-2.5 rounded-lg text-sm transition-colors text-center">
                   Free FireReady Assessment →
                 </a>

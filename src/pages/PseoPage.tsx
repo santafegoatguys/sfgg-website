@@ -106,7 +106,7 @@ export default function PseoPage() {
               <p className="text-amber-900 text-base leading-relaxed mb-4">{content.cta}</p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <a
-                  href="https://app.fireready.ai"
+                  href="https://fireready.ai/free-assessment?state=NM"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block bg-red-600 hover:bg-red-700 text-white font-semibold px-5 py-2.5 rounded-lg text-sm transition-colors text-center"
@@ -145,7 +145,7 @@ export default function PseoPage() {
             <h2 className="text-2xl font-bold text-green-900 mb-4">How It Works</h2>
             <ol className="space-y-3 not-prose mb-8">
               {[
-                'Complete the free FireReady Home assessment — takes 30 seconds, maps your specific risk zones',
+                'Complete the free FireReady assessment — instant risk score plus a full PDF report emailed free',
                 'We visit your property and design a targeted grazing plan for your acreage and vegetation type',
                 'Our herd arrives and systematically clears fire-prone understory, guided by Great Pyrenees LGDs',
                 'You receive before/after documentation for insurance and EMNRD compliance records',

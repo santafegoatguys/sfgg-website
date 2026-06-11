@@ -1272,12 +1272,31 @@ export function getNearestCities(slug: string, limit = 8): CityContent[] {
 }
 
 /**
+ * NM city slugs that have a dedicated landing page on FireReady
+ * (fireready.ai/new-mexico/{slug}). Keep in sync with
+ * fireready/client/src/lib/city-content.ts — slugs not in this set fall back
+ * to the assessment form with the city pre-filled (FireReady shows a
+ * "page not found" redirect otherwise).
+ */
+const FIREREADY_NM_SLUGS = new Set([
+  'angel-fire', 'bernalillo', 'cedar-crest', 'cloudcroft', 'corrales',
+  'edgewood', 'eldorado', 'espanola', 'jemez-springs', 'las-vegas-nm',
+  'los-alamos', 'mora', 'pecos', 'placitas', 'ruidoso', 'santa-fe',
+  'taos', 'white-rock',
+]);
+
+/**
  * Get the FireReady assessment URL for a given city.
- * Links to the city-specific FireReady page if available, otherwise the state assessment page.
+ * Links to the city-specific FireReady page if available, otherwise straight
+ * to the assessment form with the city pre-filled.
  */
 export function getFireReadyUrl(slug: string): string {
-  // NM city slugs map to FireReady's /new-mexico/{slug} pattern
-  return `https://fireready.ai/new-mexico/${slug}`;
+  if (FIREREADY_NM_SLUGS.has(slug)) {
+    return `https://fireready.ai/new-mexico/${slug}`;
+  }
+  const city = getCityContent(slug);
+  const cityParam = city ? `&city=${encodeURIComponent(city.cityName)}` : '';
+  return `https://fireready.ai/free-assessment?state=NM${cityParam}`;
 }
 
 /**

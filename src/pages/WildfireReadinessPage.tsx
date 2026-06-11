@@ -22,7 +22,7 @@ const SERVICE_FLOW = [
     step: '01',
     title: 'Risk Assessment',
     description:
-      'Start with a free 30-second FireReady score, then upgrade to our professional on-site assessment with zone-by-zone analysis.',
+      'Start with a free FireReady score and full PDF report — anchored to FEMA data for your exact census tract. Then confirm everything with a professional on-site assessment.',
     pricing: 'Free online · $350–$500 on-site',
   },
   {
@@ -65,7 +65,7 @@ const PACKAGES = [
     price: '$350–$500',
     description: 'Professional assessment with actionable next steps',
     features: [
-      'Free online FireReady risk score',
+      'Free online FireReady score + full PDF report',
       'On-site professional assessment',
       'Property walk-through with expert guidance',
       'Before photos & written risk summary',
@@ -114,7 +114,7 @@ const HOA_PACKAGES = [
     name: 'Community Assessment + Plan',
     price: '$5,000–$15,000',
     features: [
-      'Per-home FireReady assessment ($20–$30/home for 20+ homes)',
+      'Professionally administered FireReady assessment for every home ($20–$30/home for 20+ homes)',
       'Common area wildfire risk assessment',
       'Community-wide risk map',
       'Prioritized treatment recommendations',
@@ -164,7 +164,7 @@ const FAQS = [
   },
   {
     q: 'What is FireReady?',
-    a: 'FireReady (fireready.ai) is our technology platform that powers the initial risk assessment. It uses FEMA data, NFPA standards, and AI analysis to generate a risk score and zone-by-zone assessment. Think of it as the intake engine — once you complete a FireReady assessment, our team follows up with professional services.',
+    a: 'FireReady (fireready.ai) is our technology platform that powers the initial risk assessment. It uses FEMA National Risk Index data, NFPA standards, and AI analysis to generate a risk score, zone-by-zone assessment, and a full PDF report — all free. You can even add photos of your property for AI vision analysis. Once you complete a FireReady assessment, our team follows up with professional services.',
   },
   {
     q: 'Are there grants available to offset costs?',
