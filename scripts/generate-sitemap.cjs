@@ -38,9 +38,12 @@ console.log(`Found ${blogSlugs.length} blog posts`);
 
 // ── Build URL list ────────────────────────────────────────────────────────────
 const urls = [
-  { loc: '/',     priority: '1.0', changefreq: 'weekly' },
-  { loc: '/faq',  priority: '0.8', changefreq: 'monthly' },
-  { loc: '/blog', priority: '0.7', changefreq: 'weekly' },
+  { loc: '/',                   priority: '1.0', changefreq: 'weekly' },
+  { loc: '/faq',                priority: '0.8', changefreq: 'monthly' },
+  { loc: '/blog',               priority: '0.7', changefreq: 'weekly' },
+  { loc: '/pricing',            priority: '0.8', changefreq: 'monthly' },
+  { loc: '/wildfire-readiness', priority: '0.9', changefreq: 'monthly' },
+  { loc: '/wildfire-grants',    priority: '0.9', changefreq: 'monthly' },
   ...citySlugs.map(slug => ({ loc: `/services/${slug}`, priority: '0.7', changefreq: 'monthly' })),
   ...pseoSlugs.map(slug => ({ loc: `/pseo/${slug}`,     priority: '0.6', changefreq: 'monthly' })),
   ...blogSlugs.map(slug => ({ loc: `/blog/${slug}`,     priority: '0.7', changefreq: 'never'   })),
