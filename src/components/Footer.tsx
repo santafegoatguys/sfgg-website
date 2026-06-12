@@ -53,6 +53,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link to="/wildfire-grants" className="hover:text-amber-400 text-sm transition-colors">
+                  NM Wildfire Grants
+                </Link>
+              </li>
+              <li>
                 <a href="#herd-in-a-box" className="hover:text-green-400 text-sm transition-colors">
                   Herd-in-a-Box
                 </a>

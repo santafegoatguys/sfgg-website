@@ -27,6 +27,9 @@ while ((match = slugRegex.exec(content)) !== null) {
 const routes = [
   '/',
   '/faq',
+  '/pricing',
+  '/wildfire-readiness',
+  '/wildfire-grants',
   ...slugs.map((s) => `/services/${s}`),
 ];
 
